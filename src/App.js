@@ -1,26 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
 
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
-}
-
-const user = {
-  firstName: 'Kristopher',
-  lastName: 'Ong'
-};
-
-function App() {
-  return (
-    <div className="App">
+export default class App extends Component {
+  user = {
+    firstName: 'Kristopher',
+    lastName: 'Ong'
+  };
+          
+  render() {
+    return (
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hi! My name is {formatName(user)}!
+          Hi! My name is {this.formatName(this.user)}!
         </p>
       </header>
     </div>
-  );
-}
+    )
+  }
 
-export default App;
+  formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+  }
+}
